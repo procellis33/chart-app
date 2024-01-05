@@ -1,0 +1,41 @@
+{
+  "name": "chart-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint:js": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:scss": "stylelint \"src/**/*.scss\"",
+    "lint": "npm run lint:js && npm run lint:scss",
+    "check-types": "tsc",
+    "lint-and-format": "npx eslint . --fix && npx prettier --write ."
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.55.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "prettier": "^3.1.1",
+    "sass": "^1.69.7",
+    "stylelint": "^16.1.0",
+    "stylelint-config-css-modules": "^4.4.0",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  }
+}
