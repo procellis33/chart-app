@@ -1,18 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import classes from '@/App.module.scss';
 import AssetSelect from '@components/AssetSelect';
 import Chart from '@components/Chart';
 import CandleInfo from '@components/CandleInfo';
 import useCandleLoader from '@hooks/useCandleLoader.ts';
+import useWindowDimensions from '@hooks/useWindowDimensions.ts';
 
 const App: React.FC = () => {
   const url = new URL(window.location.href);
   const symbol = url.searchParams.get('symbol');
 
-  const [dimensions, setDimensions] = useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
-  });
+  const dimensions = useWindowDimensions();
 
   const candleLoader = useCandleLoader(
     symbol
@@ -24,21 +22,6 @@ const App: React.FC = () => {
           enabled: false,
         },
   );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   const [selectedCandleIndex, setSelectedCandleIndex] = useState<number | null>(
     null,
