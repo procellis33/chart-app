@@ -41,7 +41,7 @@ const useCandleLoader: TUseCandleLoader = ({enabled, symbol}) => {
   useEffect(() => {
     const validSymbols = ['ETHUSDT', 'BTCUSDT', 'XRPUSDT'];
 
-    if (symbol && validSymbols.includes(symbol)) {
+    if (symbol && validSymbols.includes(symbol) && enabled) {
       setIsLoading(true);
       setError('');
 
@@ -72,7 +72,7 @@ const useCandleLoader: TUseCandleLoader = ({enabled, symbol}) => {
           .finally(() => setIsLoading(false));
       }, 300);
     }
-  }, [symbol]);
+  }, [symbol, enabled]);
 
   if (!enabled) {
     return {
