@@ -152,6 +152,7 @@ const Chart: React.FC<IChartProps> = ({
       height={height * window.devicePixelRatio}
       style={{width: `${width}px`, height: `${height}px`}}
       onMouseMove={handleMouseMove}
+      onMouseOut={() => setSelectedCandleIndex(null)}
     />
   );
 };
